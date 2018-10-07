@@ -22,7 +22,8 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        lastTime;
+        lastTime,
+        id;
 
     canvas.width = 505;
     canvas.height = 606;
@@ -55,8 +56,22 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
-        win.requestAnimationFrame(main);
+        if (player.victory === true) {
+            win.cancelAnimationFrame(id);
+        } else {
+            id = win.requestAnimationFrame(main);
+        }
+        
     }
+
+    const replay = document.querySelector('.replay');
+    // reset the game when replay button is clicked
+    replay.addEventListener('click', () => {
+        modal.style.display = 'none';
+        player.reset();
+        player.victory = false;
+        win.requestAnimationFrame(main);
+    });
 
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the
@@ -173,7 +188,7 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-cat-girl.png'
     ]);
     Resources.onReady(init);
 

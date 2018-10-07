@@ -1,3 +1,104 @@
 body {
     text-align: center;
+    font-family: 'VT323', monospace;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+/*
+ * modal styles
+ */
+
+ #modal {
+ 	display: none;
+ 	position: fixed;
+ 	z-index: 1;
+ 	padding-top: 200px;
+ 	left: 0;
+ 	top: 0;
+ 	width: 100%;
+ 	height: 100%;
+ 	overflow: auto;
+ 	background-color: rgb(0, 0, 0);
+ 	background-color: rgba(0, 0, 0, 0.4);
+ 	text-align: center;
+ }
+
+ /* 
+  * Modal content
+  */
+.modal-content {
+	position: relative;
+	background-color: #fff2f2;
+	margin: auto;
+	padding: 0;
+	border: 1px solid #888;
+	width: 30%;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+	-webkit-animation-name: animatetop;
+	-webkit-animation-duration: 0.4s;
+	animation-name: animatetop;
+	animation-duration: 0.4s;
+}
+
+/*
+ * Add animation
+ */
+
+@-webkit-keyframes animatetop {
+	from {top: -300px; opacity: 0;}
+	to {top: 0; opacity: 1;}
+}
+
+@keyframes animatetop {
+	from {top: -300px; opacity: 0;}
+	to {top: 0; opacity: 1;}
+}
+
+/* 
+ * close button
+ */
+.close {
+	color: #fff;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/*
+ * Modal header
+ */
+
+.modal-header {
+	padding: 2px 16px;
+	background-color: #81d5c7;
+	color: #fff;
+	font-size: 28px;
+}
+
+.modal-body {padding: 2rem}
+
+button {
+	font-size: 20px;
+	font-family: 'VT323', monospace;
+	padding: 10px;
+	cursor: pointer;
+	color: #fff;
+	border: none;
+	background-color: #81d5c7;
+	font-weight: bold;
+	box-shadow: 15px 33px 29px -21px hsla(0, 0%, 0%, .2);
+}
+
+button:hover {
+	box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, .3);
 }
